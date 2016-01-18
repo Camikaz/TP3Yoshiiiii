@@ -8,7 +8,6 @@
 #include "Character.h"
 #include "Yoshi.h"
 
-
 // ===========================================================================
 //                            Function declarations
 // ===========================================================================
@@ -18,8 +17,11 @@
 //                                    MAIN
 // ===========================================================================
 int main(int argc, char* argv[]) {
-  Character   character1 = Character();
+  if(true){
+	  Character   character1 = Character();
   Yoshi       character2 = Yoshi();
+  printf("nb_instances : %d \n",Character::nb_instances() ) ;
+  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   Character*  character3 = new Character();
   Yoshi*      character4 = new Yoshi();
   //Character   character5 = Yoshi(); //La méthode accelerate de Character est appelée 
@@ -28,9 +30,13 @@ int main(int argc, char* argv[]) {
   // Yoshi       character6 = Character(); marche pas
   Character*  character7 = new Yoshi(); //type character* donc pointeur donc le virtual est utilisé
   // pas de cast : les méthodes virtual appelent celle de Yoshi
+	  
+	  
+	  
   
   // Yoshi*      character8 = new Character(); marche pas : vérification de type
-
+  printf("nb_instances : %d \n",Character::nb_instances() ) ;
+  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   character1.Accelerate();
   character2.Accelerate();
   character3->Accelerate();
@@ -68,6 +74,19 @@ int main(int argc, char* argv[]) {
   //printf("Character 6 speed : %f\n", character6.speed());
   printf("Character 7 speed : %f\n", character7->speed());
   //printf("Character 8 speed : %f\n", character8->speed());
-
+	
+  
+  delete character4;
+  delete character3;
+  delete character7;
+	
+  printf("nb_instances : %d \n",Character::nb_instances() ) ;
+  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
+  }
+  
+	
+  printf("nb_instances : %d \n",Character::nb_instances() ) ;
+  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
+  
   return 0;
 }

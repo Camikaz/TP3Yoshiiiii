@@ -12,8 +12,9 @@ class Character {
   // =========================================================================
   //                               Constructors
   // =========================================================================
+  
   Character();
-
+  
   // =========================================================================
   //                                Destructor
   // =========================================================================
@@ -23,6 +24,7 @@ class Character {
   //                                  Getters
   // =========================================================================
   inline float speed() const;
+  inline static int nb_instances();
 // inline sert a ecrire ici directement le code de la fonction (copie-colle celui de la fin)
 // ne le faire que pour des fonctions triviales
   // =========================================================================
@@ -47,6 +49,7 @@ protected :
   // =========================================================================
   //                                Attributes
   // =========================================================================
+  static int nb_instances_;
   float speed_;
   float max_speed_;
 };
@@ -56,6 +59,10 @@ protected :
 // ===========================================================================
 inline float Character::speed() const {
   return speed_;
+}
+
+inline int Character::nb_instances(){
+	return nb_instances_;
 }
 
 // ===========================================================================
