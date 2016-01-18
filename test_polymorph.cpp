@@ -18,11 +18,9 @@
 // ===========================================================================
 int main(int argc, char* argv[]) {
   if(true){
-	  Character   character1 = Character();
   Yoshi       character2 = Yoshi();
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
-  Character*  character3 = new Character();
   Yoshi*      character4 = new Yoshi();
   //Character   character5 = Yoshi(); //La méthode accelerate de Character est appelée 
   // (pas celle de Yoshi. Car le type de character5 n'est pas pointeur.
@@ -37,18 +35,14 @@ int main(int argc, char* argv[]) {
   // Yoshi*      character8 = new Character(); marche pas : vérification de type
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
-  character1.Accelerate();
   character2.Accelerate();
-  character3->Accelerate();
   character4->Accelerate();
   //character5.Accelerate();
   //character6.Accelerate();
   character7->Accelerate();
   //character8->Accelerate();
 
-  printf("Character 1 speed : %f\n", character1.speed());
   printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 3 speed : %f\n", character3->speed());
   printf("Character 4 speed : %f\n", character4->speed());
   //printf("Character 5 speed : %f\n", character5.speed());
   //printf("Character 6 speed : %f\n", character6.speed());
@@ -57,18 +51,14 @@ int main(int argc, char* argv[]) {
 
   printf("\n" );
 
-  character1.Break();
   character2.Break();
-  character3->Break();
   character4->Break();
   //character5.Break();
   //character6.Break();
   character7->Break();
   //character8->Break();
 
-  printf("Character 1 speed : %f\n", character1.speed());
   printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 3 speed : %f\n", character3->speed());
   printf("Character 4 speed : %f\n", character4->speed());
   //printf("Character 5 speed : %f\n", character5.speed());
   //printf("Character 6 speed : %f\n", character6.speed());
@@ -77,9 +67,8 @@ int main(int argc, char* argv[]) {
 	
   
   delete character4;
-  delete character3;
   delete character7;
-	
+  character2.WhatAmI();
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   }
