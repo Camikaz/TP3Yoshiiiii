@@ -5,7 +5,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
- 
+#include <vector> 
+#include <iostream>
 using namespace std;
 
 #include "Character.h"
@@ -21,10 +22,8 @@ using namespace std;
 //                                    MAIN
 // ===========================================================================
 int main(int argc, char* argv[]) {
-  if(true){
+  
   Yoshi* yoshi1 = new Yoshi();
-  printf("nb_instances : %d \n",Character::nb_instances() ) ;
-  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   Yoshi* yoshi2 = new Yoshi();
   //Character   character5 = Yoshi(); //La méthode accelerate de Character est appelée 
   // (pas celle de Yoshi. Car le type de character5 n'est pas pointeur.
@@ -33,25 +32,31 @@ int main(int argc, char* argv[]) {
   // pas de cast : les méthodes virtual appelent celle de Yoshi
   Mario* mario1 = new Mario();
   Mario* mario2 = new Mario();
-	  
+  std::vector<Character*> personnages;
+  personnages.push_back(yoshi1);
+  personnages.push_back(yoshi2);
+  personnages.push_back(mario1);
+  personnages.push_back(mario2);
+  
+  std::cout<<"Taille du vecteur :" << personnages.size()<<endl;
+  printf("nb_instances : %d \n",Character::nb_instances() ) ;
+  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
 	
   ofstream f("vitesse.txt", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
   f<<"Temps Yoshi1 Yoshi2 Mario1 Mario2" << endl;
   for (int i=0; i<10; i++){
-    yoshi1->Accelerate();
-    yoshi2->Accelerate();
-    mario1->Accelerate();
-    mario2->Accelerate();
-    f<<yoshi1->speed()<<" "<< yoshi2->speed()<<" "<<mario1->speed()
-    <<" "<<mario2->speed()<<endl;
+    for (int j=0; j<4 ; j++){
+		personnages.at(j)->Accelerate();
+        f<<personnages.at(j)->speed()<<" ";
+    }
+    f<<endl;
   }
-    for (int i=0; i<10; i++){
-    yoshi1->Break();
-    yoshi2->Break();
-    mario1->Break();
-    mario2->Break();
-    f<<yoshi1->speed()<<" "<< yoshi2->speed()<<" "<<mario1->speed()
-    <<" "<<mario2->speed()<<endl;
+  for (int i=0; i<10; i++){
+	for (int j=0; j<4 ; j++){
+		personnages.at(j)->Break();
+        f<<personnages.at(j)->speed()<<" ";
+    }
+    f<<endl;
   }  
     
     
@@ -61,36 +66,8 @@ int main(int argc, char* argv[]) {
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   printf("nb_mario : %d \n",Mario::nb_mario() ) ;
   
-  yoshi1->Accelerate();
-  yoshi2->Accelerate();
-  //character5.Accelerate();
-  //character6.Accelerate();
-  mario1->Accelerate();
-  mario2->Accelerate();
 
-  printf("Yoshi1 speed : %f\n", yoshi1->speed());
-  printf("Yoshi 2 speed : %f\n", yoshi2->speed());
-  //printf("Character 5 speed : %f\n", character5.speed());
-  //printf("Character 6 speed : %f\n", character6.speed());
-  printf("Mario 1 speed : %f\n", mario1->speed());
-  printf("Mario 2 speed : %f\n", mario2->speed());
-
-  printf("\n" );
-
-  yoshi1->Break();
-  yoshi2->Break();
-  //character5.Break();
-  //character6.Break();
-  mario1->Break();
-  mario2->Break();
-
-  printf("Yoshi1 speed  : %f\n", yoshi1->speed());
-  printf("Yoshi 2 speed : %f\n", yoshi2->speed());
-  //printf("Character 5 speed : %f\n", character5.speed());
-  //printf("Character 6 speed : %f\n", character6.speed());
-  printf("Mario 1 speed: %f\n", mario1->speed());
-  printf("Mario 2 speed : %f\n", mario2->speed());
-	
+ 
   yoshi1->WhatAmI();
   
   
@@ -106,13 +83,7 @@ int main(int argc, char* argv[]) {
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   printf("nb_mario : %d \n",Mario::nb_mario() ) ;
   
-  }
-  
-	
-  printf("nb_instances : %d \n",Character::nb_instances() ) ;
-  printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
-  printf("nb_mario : %d \n",Mario::nb_mario() ) ;
-  
+
   
   
   
