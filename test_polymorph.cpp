@@ -50,23 +50,36 @@ int main(int argc, char* argv[]) {
   
   std::list<Character*>::iterator it;
   
-  for (int i=0; i<10; i++){
-	for( it = personnages.begin(); it != personnages.end(); ++it){
-		(*it)->Accelerate();
-		f<<(*it)->speed()<<" ";
-	}
-	f<<endl;
-  }
-  
-  for (int i=0; i<10; i++){
-	for( it = personnages.begin(); it != personnages.end(); ++it){
-		(*it)->Break();
-		f<<(*it)->speed()<<" ";
+  //~ for (int i=0; i<10; i++){
+	//~ for( it = personnages.begin(); it != personnages.end(); ++it){
+		//~ (*it)->Accelerate();
+		//~ f<<(*it)->speed()<<" ";
+	//~ }
+	//~ f<<endl;
+  //~ }
+  //~ 
+  //~ for (int i=0; i<10; i++){
+	//~ for( it = personnages.begin(); it != personnages.end(); ++it){
+		//~ (*it)->Break();
+		//~ f<<(*it)->speed()<<" ";
+	//~ }
+	//~ f<<endl;
+  //~ }
+  for (int k=0; k<10; k++){
+	for(auto&& i:personnages){
+		i->Accelerate();
+		f<<i->speed()<<" ";	
 	}
 	f<<endl;
   }
     
-    
+  for (int k=0; k<10; k++){
+	for(auto&& i:personnages){
+		i->Break();
+		f<<i->speed()<<" ";	
+	}
+	f<<endl;
+  }
   
   // Yoshi*      character8 = new Character(); marche pas : vérification de type
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
