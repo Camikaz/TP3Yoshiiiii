@@ -38,10 +38,10 @@ void Yoshi::Accelerate() {
   if (*speed_ > max_speed_) *speed_ = max_speed_;
 }
 
-void Yoshi::Break() {
-  if (*speed_ < 0.1) *speed_ = 0.;
-  else *speed_ *= 0.8;
-}
+//~ void Yoshi::Break() {
+  //~ if (*speed_ < 0.1) *speed_ = 0.;
+  //~ else *speed_ *= 0.8;
+//~ }
 
 void Yoshi::WhatAmI() const{
 	std::cout<< colour_to_string(colour_) + " Yoshiiii !\n" <<std::endl;
