@@ -19,17 +19,17 @@
 // ===========================================================================
 int main(int argc, char* argv[]) {
   if(true){
-  Yoshi       character2 = Yoshi();
+  Yoshi* yoshi1 = new Yoshi();
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
-  Yoshi*      character4 = new Yoshi();
+  Yoshi* yoshi2 = new Yoshi();
   //Character   character5 = Yoshi(); //La méthode accelerate de Character est appelée 
   // (pas celle de Yoshi. Car le type de character5 n'est pas pointeur.
   // Yoshi est casté en Character (à éviter)
   // Yoshi       character6 = Character(); marche pas
-  Character*  character7 = new Yoshi(); //type character* donc pointeur donc le virtual est utilisé
   // pas de cast : les méthodes virtual appelent celle de Yoshi
-  Mario* character8 = new Mario();
+  Mario* mario1 = new Mario();
+  Mario* mario2 = new Mario();
 	  
 	  
   
@@ -38,41 +38,42 @@ int main(int argc, char* argv[]) {
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   printf("nb_mario : %d \n",Mario::nb_mario() ) ;
   
-  character2.Accelerate();
-  character4->Accelerate();
+  yoshi1->Accelerate();
+  yoshi2->Accelerate();
   //character5.Accelerate();
   //character6.Accelerate();
-  character7->Accelerate();
-  character8->Accelerate();
+  mario1->Accelerate();
+  mario2->Accelerate();
 
-  printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 4 speed : %f\n", character4->speed());
+  printf("Yoshi1 speed : %f\n", yoshi1->speed());
+  printf("Yoshi 2 speed : %f\n", yoshi2->speed());
   //printf("Character 5 speed : %f\n", character5.speed());
   //printf("Character 6 speed : %f\n", character6.speed());
-  printf("Character 7 speed : %f\n", character7->speed());
-  printf("Character 8 speed : %f\n", character8->speed());
+  printf("Mario 1 speed : %f\n", mario1->speed());
+  printf("Mario 2 speed : %f\n", mario2->speed());
 
   printf("\n" );
 
-  character2.Break();
-  character4->Break();
+  yoshi1->Break();
+  yoshi2->Break();
   //character5.Break();
   //character6.Break();
-  character7->Break();
-  character8->Break();
+  mario1->Break();
+  mario2->Break();
 
-  printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 4 speed : %f\n", character4->speed());
+  printf("Yoshi1 speed  : %f\n", yoshi1->speed());
+  printf("Yoshi 2 speed : %f\n", yoshi2->speed());
   //printf("Character 5 speed : %f\n", character5.speed());
   //printf("Character 6 speed : %f\n", character6.speed());
-  printf("Character 7 speed : %f\n", character7->speed());
-  printf("Character 8 speed : %f\n", character8->speed());
+  printf("Mario 1 speed: %f\n", mario1->speed());
+  printf("Mario 2 speed : %f\n", mario2->speed());
 	
+  yoshi1->WhatAmI();
+  delete yoshi1;
+  delete yoshi2;
+  delete mario1;
+  delete mario2;
   
-  delete character4;
-  delete character7;
-  delete character8;
-  character2.WhatAmI();
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   printf("nb_mario : %d \n",Mario::nb_mario() ) ;
