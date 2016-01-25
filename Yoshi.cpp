@@ -5,8 +5,10 @@
 #include "Yoshi.h"
 #include <cstdio>
 #include <cstdlib>
+#include <iostream>
 
 int Yoshi ::nb_yoshi_ = 0;
+
 // ===========================================================================
 //                       Definition of static attributes
 // ===========================================================================
@@ -42,9 +44,19 @@ void Yoshi::Break() {
 }
 
 void Yoshi::WhatAmI() const{
-	printf("Yoshiiii !\n");
+	std::cout<< colour_to_string(colour_) + " Yoshiiii !\n" <<std::endl;
 }
 
 // ===========================================================================
 //                              Protected Methods
 // ===========================================================================
+std::string Yoshi::colour_to_string(const Colour& c){
+	switch(c) {
+		case GREEN : return "Green"; break;
+		case RED : return "Red"; break;
+		case BLUE : return "Blue"; break;
+		case YELLOW : return "Yellow"; break;
+	}
+	return "Uncoloured";
+}
+	
