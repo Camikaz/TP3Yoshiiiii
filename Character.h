@@ -39,7 +39,7 @@ class Character {
   //                              Public Methods
   // =========================================================================
   virtual void Accelerate();
-  void Break();
+  virtual void Break();
   virtual void WhatAmI() const = 0;
 
 protected :
