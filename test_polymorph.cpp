@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <vector> 
+#include <list>
 #include <iostream>
 using namespace std;
 
@@ -32,7 +33,9 @@ int main(int argc, char* argv[]) {
   // pas de cast : les méthodes virtual appelent celle de Yoshi
   Mario* mario1 = new Mario();
   Mario* mario2 = new Mario();
-  std::vector<Character*> personnages;
+  
+  std::list<Character*> personnages;
+  
   personnages.push_back(yoshi1);
   personnages.push_back(yoshi2);
   personnages.push_back(mario1);
@@ -44,20 +47,24 @@ int main(int argc, char* argv[]) {
 	
   ofstream f("vitesse.txt", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
   f<<"Temps Yoshi1 Yoshi2 Mario1 Mario2" << endl;
+  
+  std::list<Character*>::iterator it;
+  
   for (int i=0; i<10; i++){
-    for (int j=0; j<4 ; j++){
-		personnages.at(j)->Accelerate();
-        f<<personnages.at(j)->speed()<<" ";
-    }
-    f<<endl;
+	for( it = personnages.begin(); it != personnages.end(); ++it){
+		(*it)->Accelerate();
+		f<<(*it)->speed()<<" ";
+	}
+	f<<endl;
   }
+  
   for (int i=0; i<10; i++){
-	for (int j=0; j<4 ; j++){
-		personnages.at(j)->Break();
-        f<<personnages.at(j)->speed()<<" ";
-    }
-    f<<endl;
-  }  
+	for( it = personnages.begin(); it != personnages.end(); ++it){
+		(*it)->Break();
+		f<<(*it)->speed()<<" ";
+	}
+	f<<endl;
+  }
     
     
   
