@@ -7,6 +7,8 @@
 // ===========================================================================
 #include "Character.h"
 
+enum Colour { GREEN , RED , BLUE , YELLOW } ;
+
 class Yoshi : public Character {
  public :
   // =========================================================================
@@ -24,7 +26,7 @@ class Yoshi : public Character {
   //                                  Getters
   // =========================================================================
   inline static int nb_yoshi();
-  inline int colour();
+  inline Colour colour() const;
   // =========================================================================
   //                                  Setters
   // =========================================================================
@@ -48,7 +50,7 @@ class Yoshi : public Character {
   //                                Attributes
   // =========================================================================
   static int nb_yoshi_;
-  int colour_;
+  Colour colour_;
 };
 
 // ===========================================================================
@@ -57,7 +59,7 @@ class Yoshi : public Character {
   inline int Yoshi::nb_yoshi(){
 	return nb_yoshi_;
   }
-  inline int Yoshi::colour(){
+  inline Colour Yoshi::colour() const{
 	  return colour_;
   }
 // ===========================================================================

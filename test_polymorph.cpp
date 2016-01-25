@@ -69,6 +69,7 @@ int main(int argc, char* argv[]) {
   delete character4;
   delete character7;
   character2.WhatAmI();
+  printf("colour : %d\n", (int) character2.colour());
   printf("nb_instances : %d \n",Character::nb_instances() ) ;
   printf("nb_yoshi : %d \n",Yoshi::nb_yoshi() ) ;
   }
