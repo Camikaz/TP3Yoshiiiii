@@ -51,7 +51,7 @@ protected :
   //                                Attributes
   // =========================================================================
   static int nb_instances_;
-  float speed_;
+  float* speed_;
   float max_speed_;
 };
 
@@ -59,7 +59,7 @@ protected :
 //                            Getters' definitions
 // ===========================================================================
 inline float Character::speed() const {
-  return speed_;
+  return *speed_;
 }
 
 inline int Character::nb_instances(){
