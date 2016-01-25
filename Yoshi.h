@@ -40,7 +40,7 @@ class Yoshi : public Character {
   //                              Public Methods
   // =========================================================================
   virtual void Accelerate();
-  void Break();
+  //~ void Break();
 
  protected :
   // =========================================================================
